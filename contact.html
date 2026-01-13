@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Aaradhya CSC Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Specific Styles for Contact Us Page */
+        .contact-container {
+            max-width: 900px;
+            margin: 40px auto 80px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-container h2 {
+            color: #28a745;
+            font-size: 36px;
+            border-bottom: 3px solid #28a74555;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* --- Contact Form Styling --- */
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+
+        .submit-button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 500;
+            grid-column: 1 / -1;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* --- Social Links (Circle Animation) --- */
+        .social-links {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .social-links h3 {
+            color: #007bff;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* 🌟 Circle Animation on Hover 🌟 */
+        .social-circle:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Individual Colors */
+        .whatsapp-link {
+            background-color: #25d366;
+        }
+
+        .facebook-link {
+            background-color: #3b5998;
+        }
+
+        .instagram-link {
+            background-color: #c13584;
+        }
+
+        .group-link {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-store-alt"></i>
+                <h1>Aaradhya CSC Center</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Our Services</a></li>
+                    <li><a href="information.html">Service List</a></li>
+                    <li><a href="tools.html">Tools</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="contact-container">
+        <h2><i class="fas fa-headset"></i> हमसे संपर्क करें (Contact Us)</h2>
+
+        <form action="https://formsubmit.co/sahudilharan404@gmail.com" method="POST" class="contact-form">
+            <div class="form-group">
+                <label for="name"><i class="fas fa-user"></i> आपका नाम</label>
+                <input type="text" id="name" name="name" required placeholder="अपना पूरा नाम दर्ज करें">
+            </div>
+
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> ईमेल / Gmail</label>
+                <input type="email" id="email" name="email" required placeholder="example@gmail.com">
+            </div>
+
+            <div class="form-group">
+                <label for="phone"><i class="fas fa-phone"></i> फ़ोन नंबर</label>
+                <input type="tel" id="phone" name="phone" required placeholder="10 अंकों का नंबर">
+            </div>
+
+            <div class="form-group">
+                <label for="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp नंबर</label>
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="WhatsApp के लिए नंबर (वैकल्पिक)">
+            </div>
+
+            <div class="form-group full-width">
+                <label for="location"><i class="fas fa-map-marker-alt"></i> आपका स्थान</label>
+                <input type="text" id="location" name="location" placeholder="शहर / गाँव का नाम">
+            </div>
+
+            <div class="form-group full-width">
+                <label for="message"><i class="fas fa-comment-dots"></i> आपकी Query / Request</label>
+                <textarea id="message" name="message" rows="4"
+                    placeholder="आप किस सेवा के लिए संपर्क कर रहे हैं?"></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">
+                <i class="fas fa-paper-plane"></i> Submit Request
+            </button>
+        </form>
+        <div class="map-section">
+            <h3 class="text-center">हम कहाँ हैं (Find Us)</h3>
+            <div class="map-container">
+                <iframe
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d765.5326001919752!2d81.34000576624494!3d21.868205492449725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a29b1b17813d39d%3A0xdd4935d700e44fde!2sAradhya%20csc%20center%20lokseva%20kendra%20bandhi!5e1!3m2!1sen!2sin!4v1768186471280!5m2!1sen!2sin" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="social-links">
+            <h3><i class="fas fa-share-alt"></i> सोशल मीडिया पर जुड़ें</h3>
+            <div class="social-grid">
+
+                <a href="https://wa.me/919340072621" target="_blank" class="social-circle whatsapp-link"
+                    title="WhatsApp Chat">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+                <a href="https://www.facebook.com/share/1DUKyZwkPE/" target="_blank" class="social-circle facebook-link"
+                    title="Facebook Page">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a href="https://www.instagram.com/dil.sahu04?igsh=MWxrbDZlM2ExY215cQ==" target="_blank"
+                    class="social-circle instagram-link" title="Instagram Profile">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="https://chat.whatsapp.com/LrCDB3B18lKJQViFybqkJm?mode=hqrt3" target="_blank"
+                    class="social-circle group-link" title="WhatsApp Group">
+                    <i class="fab fa-whatsapp"></i> G
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Contact Details</h4>
+                    <p><i class="fas fa-phone-alt"></i> 9340072621</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kawardha,Bandhi</p>
+                    <p><i class="fas fa-envelope"></i> sahudilharan404@gmail.com</p>
+                </div>
+
+               <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <a href="index.html#home">Home</a>
+                    <a href="index.html#services">Our Services</a>
+                    <a href="information.html">Service List</a>
+                    <a href="tools.html">Tools</a>
+                    <a href="aboutus.html">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="footer-column footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/1DUKyZwkPE/" target="_blank" class="social-icon"
+                            title="Facebook"><i class="fab fa-facebook-f"></i></a>
+
+                        <a href="https://www.instagram.com/dil.sahu04?igsh=MWxrbDZlM2ExY215cQ==" target="_blank"
+                            class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/919340072621" target="_blank" class="social-icon" title="WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CSC Choice Center. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

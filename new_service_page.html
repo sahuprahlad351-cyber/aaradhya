@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Request - Aaradhya CSC Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ------------------------------------------- */
+        /* BASE FORM STYLES */
+        /* ------------------------------------------- */
+        .service-box {
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            padding: 14px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            margin-top: 25px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+            transform: translateY(0);
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            margin-top: 30px;
+            display: block;
+            color: #ff6f61;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        /* GAS SECTION STYLING */
+        #gas-level-display {
+            display: none;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fdf2f2;
+            /* Light red background */
+            border: 2px solid #ff4d4d;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .indane-heading {
+            font-size: 28px;
+            font-weight: 800;
+            color: #e63946;
+            /* Brand Red */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .gas-bar-wrapper {
+            display: none;
+            /* Remaining bar permanently hidden as per request */
+        }
+    </style>
+
+    <script>
+        function setServiceForm() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const serviceType = urlParams.get('service');
+            const titleElement = document.getElementById('service-title');
+            const idLabel = document.getElementById('id-label');
+            const idInput = document.getElementById('id-input');
+            const documentIdGroup = document.getElementById('document-id-group');
+            const nameGroup = document.getElementById('name-group');
+            const queryGroup = document.getElementById('query-group');
+            const gasDisplay = document.getElementById('gas-level-display');
+
+            // Reset defaults
+            documentIdGroup.style.display = 'block';
+            nameGroup.style.display = 'block';
+            queryGroup.style.display = 'block';
+            gasDisplay.style.display = 'none';
+            document.getElementById('id-input').required = true;
+            document.getElementById('name').required = true;
+            document.getElementById('phone').required = true;
+
+            if (serviceType === 'aadhaar') {
+                titleElement.textContent = 'Aadhaar Update Request';
+                idLabel.textContent = 'Aadhaar Number*';
+                idInput.placeholder = 'Enter 12-digit Aadhaar Number';
+            } else if (serviceType === 'pan') {
+                titleElement.textContent = 'PAN Card Request';
+                idLabel.textContent = 'Existing PAN Number/Request Type*';
+                idInput.placeholder = 'Enter Existing PAN or "New Application"';
+            } else if (serviceType === 'gas') {
+                titleElement.textContent = 'LPG Gas Booking Request';
+
+                // Hide unnecessary fields for Gas
+                documentIdGroup.style.display = 'none';
+                nameGroup.style.display = 'none';
+                queryGroup.style.display = 'none';
+
+                document.getElementById('id-input').required = false;
+                document.getElementById('name').required = false;
+
+                // Show "Indane Gas" Heading
+                gasDisplay.style.display = 'block';
+            } else {
+                titleElement.textContent = 'General Service Request';
+                idLabel.textContent = 'Reference ID / Document Number';
+                idInput.placeholder = 'Enter relevant ID or detail';
+            }
+        }
+
+        window.onload = setServiceForm;
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-store-alt"></i>
+                <h1>Aaradhya CSC Center</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Our Services</a></li>
+                    <li><a href="information.html">Service List</a></li>
+                    <li><a href="tools.html">Tools</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="service-box">
+        <h2 id="service-title">Service Request</h2>
+
+        <div id="gas-level-display">
+            <p class="indane-heading">
+                <i class="fas fa-gas-pump"></i> INDANE GAS
+            </p>
+            <p style="color: #555; font-size: 14px; margin-top: 5px;">Official Booking Service</p>
+        </div>
+
+        <form action="https://formsubmit.co/sahudilharan404@gmail.com" method="POST"novalidate>
+
+            <div class="form-group" id="name-group">
+                <label for="name">Your Full Name*</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name">
+            </div>
+
+            <div class="form-group" id="document-id-group">
+                <label id="id-label" for="id-input">Document ID*</label>
+                <input type="text" id="id-input" name="document_id" placeholder="Enter ID">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Mobile Number*</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter 10-digit mobile number">
+            </div>
+
+            <div class="form-group" id="query-group">
+                <label for="user_query">Query / Request</label>
+                <textarea id="user_query" name="user_query" rows="4"
+                    placeholder="यहाँ अपना सवाल या अनुरोध विस्तार से लिखें..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">Submit Request</button>
+
+            <input type="hidden" name="_next" value="index.html">
+            <input type="hidden" name="_subject" value="New Service Request from CSC Website">
+        </form>
+
+        <a href="index.html" class="back-link"><i class="fas fa-chevron-left"></i> Go Back to Home Page</a>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Contact Details</h4>
+                    <p><i class="fas fa-phone-alt"></i> 9340072621</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kawardha,Bandhi</p>
+                    <p><i class="fas fa-envelope"></i> sahudilharan404@gmail.com</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <a href="index.html#home">Home</a>
+                    <a href="index.html#services">Our Services</a>
+                    <a href="information.html">Service List</a>
+                    <a href="tools.html">Tools</a>
+                    <a href="aboutus.html">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+
+                <div class="footer-column footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/1DUKyZwkPE/" target="_blank" class="social-icon"
+                            title="Facebook"><i class="fab fa-facebook-f"></i></a>
+
+                        <a href="https://www.instagram.com/dil.sahu04?igsh=MWxrbDZlM2ExY215cQ==" target="_blank"
+                            class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/919340072621" target="_blank" class="social-icon" title="WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CSC Choice Center. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</html>

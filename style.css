@@ -1,0 +1,1188 @@
+/* ======================================= */
+/* === GLOBAL STYLES & RESET === */
+/* ======================================= */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    /* पूरे पेज पर हल्का नीला/सफेद ग्रेडिएंट बैकग्राउंड */
+    background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* ======================================= */
+/* === ANIMATIONS (KEYFRAMES) === */
+/* ======================================= */
+
+/* 1. Header Title Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 2. Fade In for Content */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ======================================= */
+/* === HEADER & NAVIGATION STYLES === */
+/* ======================================= */
+header {
+    background: #007bff;
+    /* CSC प्राइमरी नीला */
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Shop Logo/Icon और Title */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    font-size: 1.6em;
+    margin-right: 8px;
+    color: #ffc107;
+    /* पीला आइकन */
+    transition: transform 0.3s;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    /* Title Animation */
+    animation: pulse 4s infinite ease-in-out;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: background-color 0.3s, color 0.3s, border-radius 0.3s;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+nav a.active-link {
+    background-color: #0056b3;
+    color: #ffd700;
+}
+
+/* ======================================= */
+/* === HERO SECTION STYLES === */
+/* ======================================= */
+.hero {
+    /* *** IMPORTANT: Change the path below to your image! *** */
+    background: url('./photo/dayannn.png') no-repeat center center/cover;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 123, 255, 0.5));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 20px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #ffc107;
+    color: #333;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e0a800;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ======================================= */
+/* === WHY CHOOSE US / SERVICES STYLES (HOME PAGE) === */
+/* ======================================= */
+.why-choose-us {
+    padding: 60px 0;
+    background: #fff;
+    text-align: center;
+}
+
+.why-choose-us h3,
+.content-section h3 {
+    font-size: 32px;
+    color: #007bff;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.why-choose-us h3::after,
+.content-section h3::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #28a745;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+/* ======================================= */
+/* === TESTIMONIALS SECTION STYLES === */
+/* ======================================= */
+.testimonials {
+    padding: 60px 0;
+    background-color: #f7f7f7; /* हल्का ग्रे बैकग्राउंड */
+    text-align: center;
+}
+
+.testimonials h3 {
+    color: #28a745; /* हरा हेडिंग */
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.testimonial-item {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-bottom: 5px solid #ffc107; /* पीला बॉटम बॉर्डर */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-item i {
+    font-size: 24px;
+    color: #007bff; /* नीला आइकन */
+    margin-bottom: 15px;
+    display: block;
+}
+
+.testimonial-item p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.testimonial-item h4 {
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.reasons-grid {
+    display: grid;
+    /* FIX: यहां ग्रिड-टेम्पलेट-कॉलम बदला गया है ताकि हमेशा 2x2 का लेआउट दिखे */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    text-align: left;
+}
+
+.reason-item,
+.reasons-grid a.reason-item {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #007bff;
+    text-decoration: none;
+    color: inherit;
+
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease, border-color 0.4s ease;
+
+    /* FIX: min-height सेट करें ताकि सभी बॉक्स एक सीध में रहें */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 230px;
+    /* 'height' के बजाय 'min-height' का उपयोग बेहतर है */
+}
+
+.reason-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-top-color: #ffc107;
+}
+
+.reason-item i {
+    font-size: 36px;
+    color: #28a745;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.reason-item:hover i {
+    transform: rotate(5deg) scale(1.1);
+}
+
+.reason-item h4 {
+    margin-top: 0;
+    color: #0056b3;
+    font-size: 1.2em;
+}
+
+/* ---------------- Placeholder Section Styling ---------------- */
+.content-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* ======================================= */
+/* === FOOTER STYLES === */
+/* ======================================= */
+footer {
+    background: #2c3e50;
+    color: #fff;
+    padding: 40px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    width: 30%;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-column h4 {
+    color: #ffc107;
+    border-bottom: 2px solid #28a745;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.footer-column p,
+.footer-column a {
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 8px;
+    display: block;
+    transition: color 0.3s;
+    text-align: center;
+}
+
+.footer-column a:hover {
+    color: #007bff;
+}
+
+.footer-social .social-icons {
+    margin-top: 15px;
+}
+
+.social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #495057;
+    color: white;
+    font-size: 20px;
+    margin-right: 15px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.social-icon:hover {
+    background-color: #007bff;
+    transform: scale(1.15);
+}
+
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #999;
+}
+
+.jhalak img{
+    height: 100%;
+    width: 100%;
+}
+
+/* ======================================= */
+/* === RESPONSIVENESS (MEDIA QUERY) === */
+/* ======================================= */
+@media (max-width: 992px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-content h2 {
+        font-size: 40px;
+    }
+
+    .footer-column {
+        flex-basis: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h2 {
+        font-size: 32px;
+    }
+
+    .reasons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-column {
+        width: 100%;
+        min-width: unset;
+        text-align: center;
+    }
+
+    .profile-content {
+        flex-direction: column;
+    }
+
+    .profile-left,
+    .profile-right {
+        flex: none;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .center-photo-placeholder {
+        height: 200px;
+    }
+}
+
+/* ======================================= */
+/* === SUB-PAGE STYLES === */
+/* ======================================= */
+
+.info-container,
+.about-container,
+.contact-container,
+.tools-container {
+    max-width: 1100px;
+    margin: 40px auto 80px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 1s ease-out;
+}
+
+/* ---------------- INFORMATION PAGE STYLES ---------------- */
+.image-placeholder {
+    height: 280px;
+    /* 💡 Replace this URL with your actual image path */
+    background: url('./photo/aradhya\ INFO.png.jpeg') center center/cover no-repeat;
+
+    background-color: #e0f7fa;
+    border: 3px solid #007bff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    color: #007bff;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.info-container h2 {
+    color: #28a745;
+    border-bottom: 3px solid #28a745;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.info-section h3 {
+    color: #007bff;
+    font-size: 24px;
+    border-left: 5px solid #007bff;
+    padding-left: 10px;
+    margin-bottom: 15px;
+    transition: color 0.3s;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 15px 25px;
+}
+
+.info-list li {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #ffc107;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s;
+}
+
+.info-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: #e6f7ff;
+}
+
+.info-list li i {
+    color: #28a745;
+    margin-right: 10px;
+}
+
+/* ---------------- ABOUT US PAGE STYLES ---------------- */
+.about-header h2 {
+    color: #007bff;
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.profile-content {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.profile-left {
+    flex: 1;
+    padding: 25px;
+    background-color: #f0f7ff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.profile-left:hover {
+    transform: translateY(-5px);
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 4px solid #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 14px;
+    color: #555;
+    position: relative;
+    transition: border-color 0.3s;
+}
+
+.profile-left:hover .profile-photo {
+    border-color: #28a745;
+}
+
+.profile-left h3 {
+    color: #333;
+    margin: 0 0 5px 0;
+    font-size: 24px;
+}
+
+.profile-left p {
+    color: #007bff;
+    font-weight: 500;
+    margin: 0;
+}
+
+.profile-right {
+    flex: 2;
+    text-align: left;
+    padding: 20px;
+}
+
+.profile-right h3 {
+    color: #28a745;
+    font-size: 28px;
+    margin-top: 0;
+}
+
+.center-photo-placeholder {
+    width: 100%;
+    height: 350px;
+    background-color: #eee;
+    border: 2px dashed #999;
+    border-radius: 10px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 18px;
+    color: #555;
+    transition: border-color 0.3s;
+}
+
+.center-photo-placeholder:hover {
+    border-color: #007bff;
+}
+
+/* ---------------- CONTACT US STYLES ---------------- */
+.contact-container h2 {
+    color: #28a745;
+    border-bottom: 3px solid #28a74555;
+}
+
+.submit-button {
+    background-color: #007bff;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 123, 255, 0.4);
+}
+
+.social-circle {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-circle:hover {
+    transform: scale(1.2) rotate(3deg);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+}
+/* ======================================= */
+/* === GOOGLE MAPS STYLES (for contact.html) === */
+/* ======================================= */
+.map-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f0f7ff; /* हल्का नीला बैकग्राउंड */
+    border-radius: 10px;
+}
+
+.map-section h3 {
+    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #007bff55;
+    padding-bottom: 10px;
+}
+
+.map-container {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* iframe का border हटाना */
+.map-container iframe {
+    border: none !important; 
+}
+
+/* ======================================= */
+/* === TOOLS PAGE STYLES (FIXED & ENHANCED) === */
+/* ======================================= */
+.tools-container h2 {
+    color: #007bff;
+    border-bottom: 3px solid #007bff55;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.tool-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+
+    /* FIX: ऊँचाई को स्थिर करने के लिए Flexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+    /* सभी कार्ड के लिए न्यूनतम ऊँचाई */
+
+    text-decoration: none;
+    color: inherit;
+
+    border: 1px solid #ddd;
+    border-bottom: 5px solid #28a745;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* 🚀 Hover Animation: Lift, Shadow, and Highlight */
+.tool-card:hover {
+    transform: translateY(-10px);
+    /* कार्ड ज़्यादा ऊपर उठता है */
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
+    border-color: #ffc107;
+    /* चारों ओर पीला बॉर्डर */
+    border-bottom: 5px solid #007bff;
+    /* नीला बॉटम हाइलाइट */
+    background: linear-gradient(145deg, #f9f9f9, #f2f2f2);
+    /* हल्का ग्रेडिएंट बैकग्राउंड */
+}
+
+.tool-card i {
+    font-size: 45px;
+    color: #007bff;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.tool-card:hover i {
+    transform: scale(1.1) rotate(-5deg);
+    color: #e0a800;
+}
+
+.tool-card h3 {
+    font-size: 24px;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.tool-card p {
+    font-size: 15px;
+    color: #555;
+    margin: 0 0 15px 0;
+    flex-grow: 1;
+    /* यह सुनिश्चित करता है कि पैराग्राफ उपलब्ध स्थान ले */
+}
+
+.tool-link-button {
+    display: inline-block;
+    width: 100%;
+    margin-top: auto;
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.tool-link-button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+/* ------------------------------------------- */
+/* FAQ PAGE STYLES (Focusing on clarity and color) */
+/* ------------------------------------------- */
+
+/* Main Container Styling */
+.document-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f7f9fc; /* Very light blue background */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Stronger shadow for depth */
+}
+
+/* Page Title Styling */
+#page-title {
+    color: #8E44AD; /* Deep Purple */
+    text-align: center;
+    border-bottom: 4px solid #D2B4DE; /* Light purple underline */
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    font-size: 30px;
+}
+
+/* Section Card Styling */
+.section-card {
+    background: #ffffff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Section Card Hover Animation */
+.section-card:hover {
+    transform: translateY(-5px); /* Lift up effect on hover */
+}
+
+/* Category Heading Styles */
+.section-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px dashed #eee;
+}
+.section-card h3 i {
+    margin-right: 12px;
+    font-size: 1.2em;
+}
+
+/* 1. Proof of Identity (POI) - Blue Theme */
+.document-container .section-card:nth-child(2) {
+    border-left: 8px solid #3498DB; /* Strong blue border */
+}
+.document-container .section-card:nth-child(2) h3 {
+    color: #3498DB;
+}
+
+/* 2. Proof of Address (POA) - Green Theme */
+.document-container .section-card:nth-child(3) {
+    border-left: 8px solid #2ECC71; /* Strong green border */
+}
+.document-container .section-card:nth-child(3) h3 {
+    color: #2ECC71;
+}
+
+/* 3. Other Requirements - Orange Theme */
+.document-container .section-card:nth-child(4) {
+    border-left: 8px solid #E67E22; /* Strong orange border */
+}
+.document-container .section-card:nth-child(4) h3 {
+    color: #E67E22;
+}
+
+/* Document List Item Styling */
+.document-list {
+    list-style: none;
+    padding: 0;
+}
+.document-list li {
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background-color: #f0f4f8; /* Very light contrasting color */
+    color: #333;
+    font-size: 16px;
+    /* Added subtle hover for better interactivity */
+    transition: background-color 0.2s; 
+}
+.document-list li:hover {
+    background-color: #e3ecf5;
+}
+
+/* Icon Coloring based on Section */
+.document-container .section-card:nth-child(2) .document-list li i {
+    color: #3498DB; /* Blue Icons */
+}
+.document-container .section-card:nth-child(3) .document-list li i {
+    color: #2ECC71; /* Green Icons */
+}
+.document-container .section-card:nth-child(4) .document-list li i {
+    color: #E67E22; /* Orange Icons */
+}
+
+/* Highlight Important Note */
+.note {
+    background-color: #F9EBEA; /* Light Pink/Red background */
+    border: 3px solid #E74C3C; /* Strong Red Border */
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 18px;
+    /* Added Attention Animation */
+    animation: attentionPulse 2s infinite; 
+}
+.note i {
+    color: #E74C3C;
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+/* Animation Keyframes */
+@keyframes attentionPulse {
+    0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+}
+
+/* Back Link (Optional: Make it prominent) */
+.back-link {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    color: #5D3FD3; /* Violet Color */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+.back-link:hover {
+    color: #4A2B9A;
+    text-decoration: underline;
+}
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header Styles */
+header {
+    background: #2c3e50;
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #3498db;
+}
+
+/* Hero Section */
+.insurance-hero {
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-overlay h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.cta-btn {
+    display: inline-block;
+    background: #e67e22;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.cta-btn:hover {
+    background: #d35400;
+    transform: scale(1.05);
+}
+
+/* Service Cards */
+.section-title {
+    text-align: center;
+    margin: 50px 0 30px;
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.service-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: 0.4s;
+    border-bottom: 4px solid #3498db;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.icon-main {
+    font-size: 3rem;
+    color: #3498db;
+    margin-bottom: 15px;
+}
+
+.apply-btn {
+    margin-top: 15px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Why Us Section */
+.why-us {
+    background: #2c3e50;
+    color: white;
+    padding: 50px 0;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.feature-item {
+    text-align: center;
+}
+
+.feature-item i {
+    font-size: 2rem;
+    color: #27ae60;
+    margin-bottom: 10px;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding-bottom: 50px;
+}
+
+.faq-item {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.faq-item h4 {
+    color: #3498db;
+}
+
+/* Footer Styles */
+footer {
+    background: #222;
+    color: #bbb;
+    padding: 40px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-column h4 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.footer-column p, .footer-column a {
+    font-size: 0.9rem;
+    color: #bbb;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    color: #3498db;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.3s; opacity: 0; }
+.delay-2 { animation-delay: 0.6s; opacity: 0; }
